@@ -36,10 +36,16 @@
             font-size: 24px;
             cursor: pointer;
             user-select: none;
+            width: 30px; /* Fissa la larghezza per mantenere il logo perfettamente al centro */
+            display: flex;
+            justify-content: center;
         }
 
         .logo-container {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .logo-title {
@@ -49,28 +55,56 @@
             letter-spacing: 0.5px;
         }
 
+        /* Subtitle con Linee Gradienti (Flexbox + Pseudo-elementi) */
         .logo-subtitle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 350px; /* Evita che le linee si allunghino all'infinito */
             font-family: sans-serif;
             font-size: 9px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: #b3b3b3;
-            margin-top: 2px;
+            margin-top: 4px;
         }
 
-        /* Navigation Bar */
+        /* Creazione delle linee sfumate a destra e sinistra */
+        .logo-subtitle::before,
+        .logo-subtitle::after {
+            content: "";
+            flex: 1; /* Permette alle linee di riempire lo spazio rimanente */
+            height: 1px;
+            margin: 0 10px; /* Spazio tra la linea e il testo */
+        }
+
+        .logo-subtitle::before {
+            /* Sfumatura da trasparente verso il colore a destra */
+            background: linear-gradient(to right, transparent, #b3b3b3);
+        }
+
+        .logo-subtitle::after {
+            /* Sfumatura da trasparente verso il colore a sinistra */
+            background: linear-gradient(to left, transparent, #b3b3b3);
+        }
+
+        /* Navigation Bar (Compatta su entrambi i lati/pezzi) */
         .site-nav {
             border-bottom: 1px solid #e0e0e0;
-            overflow-x: auto;
-            white-space: nowrap;
+            background-color: #ffffff;
         }
 
         .site-nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 24px;
+            justify-content: space-between; /* Distribuisce le voci uniformemente sui lati */
+            flex-wrap: wrap; /* Su mobile va a capo invece di creare scroll asimmetrici */
+            row-gap: 12px;
+            column-gap: 8px;
             padding: 12px 20px;
+            max-width: 900px; /* Mantiene la barra compatta e allineata col contenuto */
+            margin: 0 auto;
         }
 
         .site-nav li {
@@ -208,7 +242,7 @@
         .image-wrapper {
             position: relative;
             margin-bottom: 28px;
-            background-color: #f4f4f4; /* Fallback se non carica l'immagine */
+            background-color: #f4f4f4;
         }
 
         .image-wrapper img {
@@ -266,6 +300,9 @@
             .image-caption {
                 position: static;
             }
+            .site-nav ul {
+                justify-content: center; /* Su mobile stretto centra gli elementi wrappati */
+            }
         }
     </style>
 </head>
@@ -293,13 +330,13 @@
     </nav>
 
     <main class="article-container">
-        
+
         <div class="warning-tag">
             <span>⚠ SATIRA / ARTICOLO PARODISTICO</span>
         </div>
 
         <h1 class="article-headline">Arriva la notizia chocolàt da Ciccio Merrino, il “““terzo””””” polterguys</h1>
-        
+
         <p class="article-subhead">La dichiarazione arriva via Instagram e fa già ridere mezza Italia.</p>
 
         <div class="meta-section">
@@ -313,7 +350,7 @@
                     <span class="red-warning">SATIRA – NON PRENDETELO SUL SERIO</span>
                 </div>
             </div>
-            
+
             <div class="social-share">
                 <a href="#" class="social-icon fb">f</a>
                 <a href="#" class="social-icon tw">🐦</a>
