@@ -19,24 +19,30 @@
             background-color: #ffffff;
         }
 
-        /* Header (Worldbuilding: Fake Authority) */
+        /* Contenitore Sticky Unificato (Blocca sia Header che Nav) */
+        .sticky-header-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Lieve ombra per staccarsi dal contenuto durante lo scroll */
+        }
+
+        /* Header (Testata Nera) */
         .site-header {
             background-color: #000000;
             color: #ffffff;
-            position: sticky;
-            top: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 12px 20px;
-            z-index: 2;
         }
 
         .icon {
             font-size: 24px;
             cursor: pointer;
             user-select: none;
-            width: 30px; /* Fissa la larghezza per mantenere il logo perfettamente al centro */
+            width: 30px;
             display: flex;
             justify-content: center;
         }
@@ -46,6 +52,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            flex-grow: 1;
         }
 
         .logo-title {
@@ -55,13 +62,13 @@
             letter-spacing: 0.5px;
         }
 
-        /* Subtitle con Linee Gradienti (Flexbox + Pseudo-elementi) */
+        /* Sottotitolo con Linee Gradienti Laterali */
         .logo-subtitle {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            max-width: 350px; /* Evita che le linee si allunghino all'infinito */
+            max-width: 420px; /* Definisce l'estensione massima delle linee laterali */
             font-family: sans-serif;
             font-size: 9px;
             letter-spacing: 1.5px;
@@ -70,26 +77,25 @@
             margin-top: 4px;
         }
 
-        /* Creazione delle linee sfumate a destra e sinistra */
+        /* Configurazione delle linee sfumate speculari */
         .logo-subtitle::before,
         .logo-subtitle::after {
             content: "";
-            flex: 1; /* Permette alle linee di riempire lo spazio rimanente */
+            flex: 1;
             height: 1px;
-            margin: 0 10px; /* Spazio tra la linea e il testo */
         }
 
         .logo-subtitle::before {
-            /* Sfumatura da trasparente verso il colore a destra */
+            margin-right: 12px;
             background: linear-gradient(to right, transparent, #b3b3b3);
         }
 
         .logo-subtitle::after {
-            /* Sfumatura da trasparente verso il colore a sinistra */
+            margin-left: 12px;
             background: linear-gradient(to left, transparent, #b3b3b3);
         }
 
-        /* Navigation Bar (Compatta su entrambi i lati/pezzi) */
+        /* Navigation Bar (Compatta su entrambi i lati) */
         .site-nav {
             border-bottom: 1px solid #e0e0e0;
             background-color: #ffffff;
@@ -98,12 +104,12 @@
         .site-nav ul {
             list-style: none;
             display: flex;
-            justify-content: space-between; /* Distribuisce le voci uniformemente sui lati */
-            flex-wrap: wrap; /* Su mobile va a capo invece di creare scroll asimmetrici */
-            row-gap: 12px;
+            justify-content: space-between; /* Spinge gli elementi alle due estremità */
+            flex-wrap: wrap; /* Impedisce la rottura del layout su schermi piccoli, mandando a capo in modo fluido */
+            row-gap: 10px;
             column-gap: 8px;
             padding: 12px 20px;
-            max-width: 900px; /* Mantiene la barra compatta e allineata col contenuto */
+            max-width: 760px; /* Perfettamente allineata alla larghezza del testo dell'articolo */
             margin: 0 auto;
         }
 
@@ -127,7 +133,7 @@
         .warning-tag {
             display: inline-flex;
             align-items: center;
-            background-color: #fce205; /* Giallo acceso */
+            background-color: #fce205;
             color: #000000;
             font-size: 11px;
             font-weight: 800;
@@ -136,7 +142,7 @@
             margin-bottom: 18px;
         }
 
-        /* Typography - Headings */
+        /* Typography */
         .article-headline {
             font-size: 36px;
             font-weight: 900;
@@ -152,7 +158,7 @@
             margin-bottom: 24px;
         }
 
-        /* Meta Section (Author & Socials) */
+        /* Meta Section */
         .meta-section {
             display: flex;
             justify-content: space-between;
@@ -301,33 +307,35 @@
                 position: static;
             }
             .site-nav ul {
-                justify-content: center; /* Su mobile stretto centra gli elementi wrappati */
+                justify-content: center; /* Centra gli elementi su schermi molto stretti per mantenere pulizia visiva */
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="icon hamburger">☰</div>
-        <div class="logo-container">
-            <h1 class="logo-title">The Truth about Tutt</h1>
-            <div class="logo-subtitle">NOTIZIE FINTE PER PERSONE VERE</div>
-        </div>
-        <div class="icon search">⌕</div>
-    </header>
+    <div class="sticky-header-wrapper">
+        <header class="site-header">
+            <div class="icon hamburger">☰</div>
+            <div class="logo-container">
+                <h1 class="logo-title">The Truth about Tutt</h1>
+                <div class="logo-subtitle">NOTIZIE FINTE PER PERSONE VERE</div>
+            </div>
+            <div class="icon search">⌕</div>
+        </header>
 
-    <nav class="site-nav">
-        <ul>
-            <li>Home</li>
-            <li>Attualità</li>
-            <li>Spettacolo</li>
-            <li>Musica</li>
-            <li>Cultura</li>
-            <li>Rubriche</li>
-            <li>Disclaimer</li>
-        </ul>
-    </nav>
+        <nav class="site-nav">
+            <ul>
+                <li>Home</li>
+                <li>Attualità</li>
+                <li>Spettacolo</li>
+                <li>Musica</li>
+                <li>Cultura</li>
+                <li>Rubriche</li>
+                <li>Disclaimer</li>
+            </ul>
+        </nav>
+    </div>
 
     <main class="article-container">
 
