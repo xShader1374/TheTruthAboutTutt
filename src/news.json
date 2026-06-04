@@ -1,0 +1,46 @@
+[
+    {
+        "id": "news-001",
+        "isFeatured": true,
+        "category": "ECONOMIA E DISTOPIA",
+        "title": "Amazon Prime Air acquista la base aerea di Milano: \"Diventerà il parcheggio per i nostri droni fattorino\"",
+        "description": "L'accordo multimiliardario è stato siglato stanotte. I caccia militari verranno riconvertiti per le consegne 'Ultra-Prime' garantite in 3 minuti. I residenti pugliesi si lamentano dell'inquinamento acustico, la multinazionale risponde offrendo in omaggio 3 mesi di Music Unlimited (con pubblicità).",
+        "author": "Karl M.",
+        "date": "4 Giugno 2026",
+        "imgSrc": "src/imgs/droni-milano.jpg",
+        "imgAlt": "Caccia militare con il logo del sorriso stampato sulla fiancata"
+    },
+    {
+        "id": "news-002",
+        "isFeatured": false,
+        "category": "SPETTACOLO",
+        "title": "Arriva la notizia chocolàt da Ciccio Merrino, il “““terzo””””” polterguys",
+        "description": "Con una storia su Instagram che puzza di sarcasmo da chilometri, Ciccio – alias il \"terzo\" polterguys – ha lasciato tutti a bocca aperta: \"Li sto usando solo come trampolino di lancio per il ballo\".",
+        "author": "Redazione TATT",
+        "date": "14 Maggio 2024",
+        "imgSrc": "src/imgs/CiccioMerrino1.jpg",
+        "imgAlt": "Ciccio Merrino con giacca di pelle nera"
+    },
+    {
+        "id": "news-003",
+        "isFeatured": false,
+        "category": "SCIENZA / TECH",
+        "title": "Elon Musk introduce l'abbonamento mensile per l'uso dei freni nelle Tesla",
+        "description": "Se non rinnovi il pacchetto 'Brake-Premium' a 29,99€ al mese, l'Intelligenza Artificiale dell'auto deciderà autonomamente – basandosi sulle quotazioni in borsa – se fermarsi o meno ai semafori rossi.",
+        "author": "Tech-Bros TATT",
+        "date": "3 Giugno 2026",
+        "imgSrc": "src/imgs/tesla-brakes.jpg",
+        "imgAlt": "Un'automobile che sfreccia ignorando un incrocio"
+    },
+    {
+        "id": "news-004",
+        "isFeatured": false,
+        "category": "POLITICA INTERNA",
+        "title": "Governo vara il 'Bonus Ossigeno': 50 euro al mese per respirare, ma solo con ISEE inferiore a 4 euro",
+        "description": "L'aria pulita diventa ufficialmente un servizio in abbonamento a causa della privatizzazione atmosferica. Le accese polemiche dell'opposizione: \"E chi soffre di asma deve pagare un extra tariffario?\"",
+        "author": "Redazione TATT",
+        "date": "1 Giugno 2026",
+        "imgSrc": "src/imgs/bonus-ossigeno.jpg",
+        "imgAlt": "Una bombola d'ossigeno brandizzata da un istituto di credito"
+    }
+]

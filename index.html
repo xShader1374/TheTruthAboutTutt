@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Truth about Tutt - Arriva la notizia chocolàt...</title>
+    <title>The Truth about Tutt - Home</title>
     <style>
         /* CSS Reset & Base Variables */
         * {
@@ -16,16 +16,16 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             color: #1a1a1a;
             line-height: 1.5;
-            background-color: #ffffff;
+            background-color: #f9f9f9; /* Sfondo leggermente grigio per far risaltare le card bianche */
         }
 
-        /* Contenitore Sticky Unificato (Blocca sia Header che Nav) */
+        /* Contenitore Sticky Unificato */
         .sticky-header-wrapper {
             position: sticky;
             top: 0;
             z-index: 1000;
             background-color: #ffffff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Lieve ombra per staccarsi dal contenuto durante lo scroll */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         /* Header (Testata Nera) */
@@ -68,7 +68,7 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            max-width: 420px; /* Definisce l'estensione massima delle linee laterali */
+            max-width: 420px;
             font-family: sans-serif;
             font-size: 9px;
             letter-spacing: 1.5px;
@@ -77,7 +77,6 @@
             margin-top: 4px;
         }
 
-        /* Configurazione delle linee sfumate speculari */
         .logo-subtitle::before,
         .logo-subtitle::after {
             content: "";
@@ -95,7 +94,7 @@
             background: linear-gradient(to left, transparent, #b3b3b3);
         }
 
-        /* Navigation Bar (Compatta su entrambi i lati) */
+        /* Navigation Bar */
         .site-nav {
             border-bottom: 1px solid #e0e0e0;
             background-color: #ffffff;
@@ -104,12 +103,12 @@
         .site-nav ul {
             list-style: none;
             display: flex;
-            justify-content: space-between; /* Spinge gli elementi alle due estremità */
-            flex-wrap: wrap; /* Impedisce la rottura del layout su schermi piccoli, mandando a capo in modo fluido */
+            justify-content: space-between;
+            flex-wrap: wrap;
             row-gap: 10px;
             column-gap: 8px;
             padding: 12px 20px;
-            max-width: 760px; /* Perfettamente allineata alla larghezza del testo dell'articolo */
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -120,200 +119,171 @@
             letter-spacing: 0.5px;
             color: #000;
             cursor: pointer;
+            transition: color 0.2s;
         }
 
-        /* Main Content Container */
-        .article-container {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 24px 20px;
+        .site-nav li:hover {
+            color: #e74c3c;
         }
 
-        /* Satire Warning Tag */
-        .warning-tag {
-            display: inline-flex;
-            align-items: center;
+        /* --- STILI DELLA HOME PAGE (FEED) --- */
+        .home-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Card Notizia in Evidenza (Featured) */
+        .featured-article {
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            margin-bottom: 40px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .featured-article:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .featured-img-wrapper {
+            width: 100%;
+            height: 400px;
+            background-color: #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .featured-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .featured-content {
+            padding: 24px;
+        }
+
+        .category-tag {
+            display: inline-block;
             background-color: #fce205;
-            color: #000000;
-            font-size: 11px;
+            color: #000;
+            font-size: 10px;
             font-weight: 800;
-            padding: 4px 10px;
+            padding: 4px 8px;
             text-transform: uppercase;
-            margin-bottom: 18px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
 
-        /* Typography */
-        .article-headline {
-            font-size: 36px;
+        .featured-title {
+            font-size: 32px;
             font-weight: 900;
             line-height: 1.15;
             letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .featured-desc {
+            font-size: 16px;
+            color: #444;
             margin-bottom: 16px;
         }
 
-        .article-subhead {
-            font-size: 18px;
-            font-style: italic;
-            color: #666666;
-            margin-bottom: 24px;
+        /* Griglia delle notizie secondarie */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
         }
 
-        /* Meta Section */
-        .meta-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #eeeeee;
-            border-bottom: 1px solid #eeeeee;
-            padding: 16px 0;
-            margin-bottom: 24px;
-        }
-
-        .author-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .author-avatar {
-            width: 45px;
-            height: 45px;
-            background-color: #000000;
-            color: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-size: 10px;
-            line-height: 1.1;
-        }
-
-        .author-avatar span {
-            font-family: "Georgia", serif;
-            font-weight: bold;
-        }
-
-        .author-details {
+        /* Card Standard */
+        .news-card {
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
             display: flex;
             flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .author-name {
-            font-size: 13px;
-            font-weight: 700;
-            color: #000;
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        .article-date {
-            font-size: 12px;
-            color: #888888;
-            margin-top: 2px;
+        .card-img-wrapper {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            overflow: hidden;
         }
 
-        .red-warning {
-            color: #d32f2f;
-            font-weight: 700;
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #555;
+            flex-grow: 1;
+            margin-bottom: 12px;
+        }
+
+        .meta-info {
             font-size: 11px;
+            color: #888;
+            font-weight: 600;
             text-transform: uppercase;
-            margin-top: 2px;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
         }
 
-        /* Social Icons */
-        .social-share {
-            display: flex;
-            gap: 8px;
-        }
-
-        .social-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            font-family: serif;
-        }
-
-        .fb { background-color: #3b5998; }
-        .tw { background-color: #1da1f2; }
-        .wa { background-color: #25d366; font-size: 18px; }
-        .em { background-color: #333333; font-size: 18px; }
-
-        /* Main Image & Caption */
-        .image-wrapper {
-            position: relative;
-            margin-bottom: 28px;
-            background-color: #f4f4f4;
-        }
-
-        .image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .image-caption {
-            background-color: #000000;
-            color: #ffffff;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-        }
-
-        /* Article Body Text */
-        .article-body {
-            font-size: 17px;
-            line-height: 1.6;
-            color: #111111;
-        }
-
-        .article-body p {
-            margin-bottom: 24px;
-        }
-
-        .article-body p.lead {
-            font-weight: 700;
-        }
-
-        .article-body blockquote {
-            border-left: 2px solid #e74c3c;
-            background-color: #f8f9fa;
-            padding: 16px 24px;
-            margin: 0 0 24px 0;
-            font-style: italic;
-            font-size: 17px;
-            color: #333333;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .meta-section {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .featured-img-wrapper {
+                height: 250px;
             }
-            .article-headline {
-                font-size: 30px;
-            }
-            .image-caption {
-                position: static;
+            .featured-title {
+                font-size: 26px;
             }
             .site-nav ul {
-                justify-content: center; /* Centra gli elementi su schermi molto stretti per mantenere pulizia visiva */
+                justify-content: center;
             }
+        }
+
+        /* Loader di stato */
+        .loading-state {
+            text-align: center;
+            padding: 50px;
+            font-family: monospace;
+            color: #666;
         }
     </style>
 </head>
 <body>
 
+    <!-- Contenitore unico per bloccare l'intera testata (Header + Nav) -->
     <div class="sticky-header-wrapper">
         <header class="site-header">
             <div class="icon hamburger">☰</div>
@@ -329,66 +299,104 @@
                 <li>Home</li>
                 <li>Attualità</li>
                 <li>Spettacolo</li>
-                <li>Musica</li>
-                <li>Cultura</li>
+                <li>Economia</li>
+                <li>Cyber-Tech</li>
                 <li>Rubriche</li>
                 <li>Disclaimer</li>
             </ul>
         </nav>
     </div>
 
-    <main class="article-container">
-
-        <div class="warning-tag">
-            <span>⚠ SATIRA / ARTICOLO PARODISTICO</span>
-        </div>
-
-        <h1 class="article-headline">Arriva la notizia chocolàt da Ciccio Merrino, il “““terzo””””” polterguys</h1>
-
-        <p class="article-subhead">La dichiarazione arriva via Instagram e fa già ridere mezza Italia.</p>
-
-        <div class="meta-section">
-            <div class="author-info">
-                <div class="author-avatar">
-                    <span>TATT<br><span style="font-size: 5px; font-weight: normal;">The Truth<br>about Tutt</span></span>
-                </div>
-                <div class="author-details">
-                    <span class="author-name">Di Redazione TATT</span>
-                    <span class="article-date">14 Maggio 2024 - 11:42</span>
-                    <span class="red-warning">SATIRA – NON PRENDETELO SUL SERIO</span>
-                </div>
-            </div>
-
-            <div class="social-share">
-                <a href="#" class="social-icon fb">f</a>
-                <a href="#" class="social-icon tw">🐦</a>
-                <a href="#" class="social-icon wa">✆</a>
-                <a href="#" class="social-icon em">✉</a>
-            </div>
-        </div>
-
-        <div class="image-wrapper">
-            <img src="src/imgs/CiccioMerrino1.jpg" alt="Ciccio Merrino con giacca di pelle nera">
-            <div class="image-caption">
-                Ciccio Merrino, detto anche "il terzo polterguys" (foto presa da Instagram, probabilmente)
-            </div>
-        </div>
-
-        <div class="article-body">
-            <p class="lead">
-                Con una storia su Instagram che puzza di sarcasmo da chilometri, Ciccio Merrino – alias il """terzo""" polterguys – ha lasciato tutti a bocca aperta.
-            </p>
-
-            <blockquote>
-                "Polterguys? Penso che li abbandonerò, voglio darmi alla musica e al ballo e li sto usando esclusivamente come trampolino di lancio, daniele è fr***o e marco ob***o, lol!"
-            </blockquote>
-
-            <p>
-                Parole forti, o forse no. Fonti vicine (cioè nessuna) confermano che si tratta di uno scherzo al 99,9%. Ma sui social è già il delirio: tra meme, screenshot e gif di Ciccio che balla, la situazione è completamente fuori controllo.
-            </p>
-        </div>
-
+    <!-- Contenitore Dinamico del Feed Notizie -->
+    <main class="home-container" id="news-feed-container">
+        <div class="loading-state">Intercettazione dei dati dal database TATT in corso...</div>
     </main>
 
+    <!-- Motore Logico JavaScript per Fetch JSON -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const feedContainer = document.getElementById('news-feed-container');
+
+            // Funzione asincrona per recuperare il file JSON
+            async function fetchNews() {
+                try {
+                    // Nel caso di test locale (file://) il fetch potrebbe dare errore di CORS.
+                    // Assicurati di usare un Live Server o un ambiente server locale.
+                    const response = await fetch('src/news.json');
+
+                    if (!response.ok) {
+                        throw new Error(`Errore HTTP: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    renderFeed(data);
+
+                } catch (error) {
+                    console.error("Errore di caricamento:", error);
+                    feedContainer.innerHTML = `
+                        <div class="loading-state" style="color: #d32f2f;">
+                            <strong>ERRORE CRITICO DEL SISTEMA.</strong><br>
+                            Impossibile connettersi ai server TATT.<br>
+                            Assicurati che 'src/news.json' esista e di avviare il file tramite un server locale (es. VS Code Live Server) per aggirare i blocchi CORS di sicurezza del browser.
+                        </div>`;
+                }
+            }
+
+            // Funzione per generare il layout HTML partendo dai dati JSON
+            function renderFeed(newsArray) {
+                // Svuota il contenitore dal loader
+                feedContainer.innerHTML = '';
+
+                // Separiamo la notizia principale dalle altre
+                const featuredNews = newsArray.find(article => article.isFeatured === true) || newsArray[0];
+                const regularNews = newsArray.filter(article => article.id !== featuredNews.id);
+
+                // 1. Renderizzazione Articolo in Evidenza
+                const featuredHTML = `
+                    <article class="featured-article">
+                        <div class="featured-img-wrapper">
+                            <img src="${featuredNews.imgSrc}" alt="${featuredNews.imgAlt}" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%3Crect%20fill%3D%22%23cccccc%22%20width%3D%22100%25%22%20height%3D%22100%25%22%2F%3E%3Ctext%20fill%3D%22%23888888%22%20font-family%3D%22sans-serif%22%20font-size%3D%2220%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImmagine%20non%20trovata%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                        </div>
+                        <div class="featured-content">
+                            <span class="category-tag">${featuredNews.category}</span>
+                            <h2 class="featured-title">${featuredNews.title}</h2>
+                            <p class="featured-desc">${featuredNews.description}</p>
+                            <div class="meta-info">Di ${featuredNews.author} • ${featuredNews.date}</div>
+                        </div>
+                    </article>
+                `;
+
+                feedContainer.insertAdjacentHTML('beforeend', featuredHTML);
+
+                // 2. Renderizzazione Griglia Articoli Secondari
+                if (regularNews.length > 0) {
+                    const gridContainer = document.createElement('div');
+                    gridContainer.className = 'news-grid';
+
+                    regularNews.forEach(article => {
+                        const cardHTML = `
+                            <article class="news-card">
+                                <div class="card-img-wrapper">
+                                    <img src="${article.imgSrc}" alt="${article.imgAlt}" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%3Crect%20fill%3D%22%23cccccc%22%20width%3D%22100%25%22%20height%3D%22100%25%22%2F%3E%3Ctext%20fill%3D%22%23888888%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImmagine%20non%20trovata%3C%2Ftext%3E%3C%2Fsvg%3E'">
+                                </div>
+                                <div class="card-content">
+                                    <span class="category-tag" style="align-self: flex-start; padding: 3px 6px; font-size: 9px;">${article.category}</span>
+                                    <h3 class="card-title">${article.title}</h3>
+                                    <p class="card-desc">${article.description}</p>
+                                    <div class="meta-info">Di ${article.author} • ${article.date}</div>
+                                </div>
+                            </article>
+                        `;
+                        gridContainer.insertAdjacentHTML('beforeend', cardHTML);
+                    });
+
+                    feedContainer.appendChild(gridContainer);
+                }
+            }
+
+            // Esegui la richiesta
+            fetchNews();
+        });
+    </script>
 </body>
 </html>
