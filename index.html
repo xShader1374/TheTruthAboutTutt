@@ -1,1 +1,346 @@
-test
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Truth about Tutt - Arriva la notizia chocolàt...</title>
+    <style>
+        /* CSS Reset & Base Variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.5;
+            background-color: #ffffff;
+        }
+
+        /* Header (Worldbuilding: Fake Authority) */
+        .site-header {
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+        }
+
+        .icon {
+            font-size: 24px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .logo-container {
+            text-align: center;
+        }
+
+        .logo-title {
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 26px;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-subtitle {
+            font-family: sans-serif;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #b3b3b3;
+            margin-top: 2px;
+        }
+
+        /* Navigation Bar */
+        .site-nav {
+            border-bottom: 1px solid #e0e0e0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .site-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding: 12px 20px;
+        }
+
+        .site-nav li {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        /* Main Content Container */
+        .article-container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        /* Satire Warning Tag */
+        .warning-tag {
+            display: inline-flex;
+            align-items: center;
+            background-color: #fce205; /* Giallo acceso */
+            color: #000000;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        /* Typography - Headings */
+        .article-headline {
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .article-subhead {
+            font-size: 18px;
+            font-style: italic;
+            color: #666666;
+            margin-bottom: 24px;
+        }
+
+        /* Meta Section (Author & Socials) */
+        .meta-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
+            padding: 16px 0;
+            margin-bottom: 24px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 10px;
+            line-height: 1.1;
+        }
+
+        .author-avatar span {
+            font-family: "Georgia", serif;
+            font-weight: bold;
+        }
+
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .article-date {
+            font-size: 12px;
+            color: #888888;
+            margin-top: 2px;
+        }
+
+        .red-warning {
+            color: #d32f2f;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        /* Social Icons */
+        .social-share {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: serif;
+        }
+
+        .fb { background-color: #3b5998; }
+        .tw { background-color: #1da1f2; }
+        .wa { background-color: #25d366; font-size: 18px; }
+        .em { background-color: #333333; font-size: 18px; }
+
+        /* Main Image & Caption */
+        .image-wrapper {
+            position: relative;
+            margin-bottom: 28px;
+            background-color: #f4f4f4; /* Fallback se non carica l'immagine */
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            background-color: #000000;
+            color: #ffffff;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        /* Article Body Text */
+        .article-body {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #111111;
+        }
+
+        .article-body p {
+            margin-bottom: 24px;
+        }
+
+        .article-body p.lead {
+            font-weight: 700;
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid #e74c3c;
+            background-color: #f8f9fa;
+            padding: 16px 24px;
+            margin: 0 0 24px 0;
+            font-style: italic;
+            font-size: 17px;
+            color: #333333;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .meta-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .article-headline {
+                font-size: 30px;
+            }
+            .image-caption {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="icon hamburger">☰</div>
+        <div class="logo-container">
+            <h1 class="logo-title">The Truth about Tutt</h1>
+            <div class="logo-subtitle">NOTIZIE FINTE PER PERSONE VERE</div>
+        </div>
+        <div class="icon search">⌕</div>
+    </header>
+
+    <nav class="site-nav">
+        <ul>
+            <li>Home</li>
+            <li>Attualità</li>
+            <li>Spettacolo</li>
+            <li>Musica</li>
+            <li>Cultura</li>
+            <li>Rubriche</li>
+            <li>Disclaimer</li>
+        </ul>
+    </nav>
+
+    <main class="article-container">
+        
+        <div class="warning-tag">
+            <span>⚠ SATIRA / ARTICOLO PARODISTICO</span>
+        </div>
+
+        <h1 class="article-headline">Arriva la notizia chocolàt da Ciccio Merrino, il “““terzo””””” polterguys</h1>
+        
+        <p class="article-subhead">La dichiarazione arriva via Instagram e fa già ridere mezza Italia.</p>
+
+        <div class="meta-section">
+            <div class="author-info">
+                <div class="author-avatar">
+                    <span>TATT<br><span style="font-size: 5px; font-weight: normal;">The Truth<br>about Tutt</span></span>
+                </div>
+                <div class="author-details">
+                    <span class="author-name">Di Redazione TATT</span>
+                    <span class="article-date">14 Maggio 2024 - 11:42</span>
+                    <span class="red-warning">SATIRA – NON PRENDETELO SUL SERIO</span>
+                </div>
+            </div>
+            
+            <div class="social-share">
+                <a href="#" class="social-icon fb">f</a>
+                <a href="#" class="social-icon tw">🐦</a>
+                <a href="#" class="social-icon wa">✆</a>
+                <a href="#" class="social-icon em">✉</a>
+            </div>
+        </div>
+
+        <div class="image-wrapper">
+            <img src="immagine.jpg" alt="Ciccio Merrino con giacca di pelle nera">
+            <div class="image-caption">
+                Ciccio Merrino, detto anche "il terzo polterguys" (foto presa da Instagram, probabilmente)
+            </div>
+        </div>
+
+        <div class="article-body">
+            <p class="lead">
+                Con una storia su Instagram che puzza di sarcasmo da chilometri, Ciccio Merrino – alias il """terzo""" polterguys – ha lasciato tutti a bocca aperta.
+            </p>
+
+            <blockquote>
+                "Polterguys? Penso che li abbandonerò, voglio darmi alla musica e al ballo e li sto usando esclusivamente come trampolino di lancio, daniele è fr***o e marco ob***o, lol!"
+            </blockquote>
+
+            <p>
+                Parole forti, o forse no. Fonti vicine (cioè nessuna) confermano che si tratta di uno scherzo al 99,9%. Ma sui social è già il delirio: tra meme, screenshot e gif di Ciccio che balla, la situazione è completamente fuori controllo.
+            </p>
+        </div>
+
+    </main>
+
+</body>
+</html>
