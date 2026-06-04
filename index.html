@@ -5,398 +5,280 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Truth about Tutt - Home</title>
     <style>
-        /* CSS Reset & Base Variables */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* [Tutto il CSS Base, Header e Nav resta identico al precedente] */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.5; background-color: #f9f9f9; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #1a1a1a;
-            line-height: 1.5;
-            background-color: #f9f9f9; /* Sfondo leggermente grigio per far risaltare le card bianche */
-        }
+        .sticky-header-wrapper { position: sticky; top: 0; z-index: 1000; background-color: #ffffff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+        .site-header { background-color: #000000; color: #ffffff; display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; }
+        .icon { font-size: 24px; cursor: pointer; user-select: none; width: 30px; display: flex; justify-content: center; }
+        .logo-container { text-align: center; display: flex; flex-direction: column; align-items: center; flex-grow: 1; cursor: pointer;}
+        .logo-title { font-family: "Georgia", "Times New Roman", serif; font-size: 26px; font-weight: normal; letter-spacing: 0.5px; }
 
-        /* Contenitore Sticky Unificato */
-        .sticky-header-wrapper {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: #ffffff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
+        .logo-subtitle { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 420px; font-family: sans-serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #b3b3b3; margin-top: 4px; }
+        .logo-subtitle::before, .logo-subtitle::after { content: ""; flex: 1; height: 1px; }
+        .logo-subtitle::before { margin-right: 12px; background: linear-gradient(to right, transparent, #b3b3b3); }
+        .logo-subtitle::after { margin-left: 12px; background: linear-gradient(to left, transparent, #b3b3b3); }
 
-        /* Header (Testata Nera) */
-        .site-header {
-            background-color: #000000;
-            color: #ffffff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 20px;
-        }
+        .site-nav { border-bottom: 1px solid #e0e0e0; background-color: #ffffff; }
+        .site-nav ul { list-style: none; display: flex; justify-content: space-between; flex-wrap: wrap; row-gap: 10px; column-gap: 8px; padding: 12px 20px; max-width: 900px; margin: 0 auto; }
+        .site-nav li { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #000; cursor: pointer; transition: color 0.2s; }
+        .site-nav li:hover { color: #e74c3c; }
 
-        .icon {
-            font-size: 24px;
-            cursor: pointer;
-            user-select: none;
-            width: 30px;
-            display: flex;
-            justify-content: center;
-        }
+        /* --- VISTA HOME (FEED) --- */
+        .home-container { max-width: 1000px; margin: 30px auto; padding: 0 20px; transition: opacity 0.3s ease; }
 
-        .logo-container {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-grow: 1;
-        }
+        .featured-article, .news-card { background-color: #ffffff; border: 1px solid #eaeaea; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .featured-article { display: flex; flex-direction: column; margin-bottom: 40px; }
+        .featured-article:hover, .news-card:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
 
-        .logo-title {
-            font-family: "Georgia", "Times New Roman", serif;
-            font-size: 26px;
-            font-weight: normal;
-            letter-spacing: 0.5px;
-        }
+        .featured-img-wrapper { width: 100%; height: 400px; background-color: #000; overflow: hidden; }
+        .featured-img-wrapper img, .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
+        .featured-content, .card-content { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
 
-        /* Sottotitolo con Linee Gradienti Laterali */
-        .logo-subtitle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            max-width: 420px;
-            font-family: sans-serif;
-            font-size: 9px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #b3b3b3;
-            margin-top: 4px;
-        }
+        .category-tag { display: inline-block; background-color: #fce205; color: #000; font-size: 10px; font-weight: 800; padding: 4px 8px; text-transform: uppercase; margin-bottom: 12px; align-self: flex-start; }
+        .featured-title { font-size: 32px; font-weight: 900; line-height: 1.15; margin-bottom: 12px; }
+        .featured-desc { font-size: 16px; color: #444; margin-bottom: 16px; }
 
-        .logo-subtitle::before,
-        .logo-subtitle::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-        }
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .news-card { display: flex; flex-direction: column; }
+        .card-img-wrapper { width: 100%; height: 180px; background-color: #eee; overflow: hidden; }
+        .card-content { padding: 16px; }
+        .card-title { font-size: 20px; font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+        .card-desc { font-size: 14px; color: #555; flex-grow: 1; margin-bottom: 12px; }
+        .meta-info { font-size: 11px; color: #888; font-weight: 600; text-transform: uppercase; border-top: 1px solid #eee; padding-top: 12px; }
 
-        .logo-subtitle::before {
-            margin-right: 12px;
-            background: linear-gradient(to right, transparent, #b3b3b3);
-        }
+        /* Paginazione */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin: 40px 0; }
+        .page-btn { padding: 8px 16px; background-color: #ffffff; border: 1px solid #ddd; font-weight: bold; cursor: pointer; transition: all 0.2s; }
+        .page-btn:hover:not(:disabled) { background-color: #000; color: #fff; border-color: #000; }
+        .page-btn.active { background-color: #000; color: #fff; border-color: #000; pointer-events: none; }
+        .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        .logo-subtitle::after {
-            margin-left: 12px;
-            background: linear-gradient(to left, transparent, #b3b3b3);
-        }
+        /* --- VISTA ARTICOLO SINGOLO (Prelevata dal tuo primo file) --- */
+        .single-article-view { max-width: 760px; margin: 0 auto; padding: 24px 20px; background-color: #ffffff; display: none; } /* Nascosta di default */
+        .back-button { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: bold; text-transform: uppercase; color: #666; cursor: pointer; margin-bottom: 24px; border: none; background: none; }
+        .back-button:hover { color: #000; }
 
-        /* Navigation Bar */
-        .site-nav {
-            border-bottom: 1px solid #e0e0e0;
-            background-color: #ffffff;
-        }
+        .article-headline { font-size: 36px; font-weight: 900; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 16px; }
+        .article-subhead { font-size: 18px; font-style: italic; color: #666666; margin-bottom: 24px; }
+        .meta-section { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee; padding: 16px 0; margin-bottom: 24px; }
+        .author-info { display: flex; align-items: center; gap: 12px; }
+        .author-avatar { width: 45px; height: 45px; background-color: #000; color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 10px; line-height: 1.1; font-family: "Georgia", serif; font-weight: bold; }
+        .author-details { display: flex; flex-direction: column; }
+        .author-name { font-size: 13px; font-weight: 700; color: #000; }
+        .article-date { font-size: 12px; color: #888; margin-top: 2px; }
+        .red-warning { color: #d32f2f; font-weight: 700; font-size: 11px; text-transform: uppercase; margin-top: 2px; }
 
-        .site-nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            row-gap: 10px;
-            column-gap: 8px;
-            padding: 12px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        .social-share { display: flex; gap: 8px; }
+        .social-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; text-decoration: none; font-weight: bold; font-size: 16px; font-family: serif; }
+        .fb { background-color: #3b5998; } .tw { background-color: #1da1f2; } .wa { background-color: #25d366; font-size: 18px; } .em { background-color: #333333; font-size: 18px; }
 
-        .site-nav li {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #000;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
+        .image-wrapper { position: relative; margin-bottom: 28px; background-color: #f4f4f4; }
+        .image-wrapper img { width: 100%; height: auto; display: block; }
+        .image-caption { background-color: #000; color: #fff; font-size: 12px; padding: 8px 12px; position: absolute; bottom: 0; left: 0; width: 100%; }
 
-        .site-nav li:hover {
-            color: #e74c3c;
-        }
+        .article-body { font-size: 17px; line-height: 1.6; color: #111; padding-bottom: 60px; }
+        .article-body p { margin-bottom: 24px; }
+        .article-body p.lead { font-weight: 700; }
+        .article-body blockquote { border-left: 2px solid #e74c3c; background-color: #f8f9fa; padding: 16px 24px; margin: 0 0 24px 0; font-style: italic; font-size: 17px; color: #333; }
 
-        /* --- STILI DELLA HOME PAGE (FEED) --- */
-        .home-container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        /* Card Notizia in Evidenza (Featured) */
-        .featured-article {
-            display: flex;
-            flex-direction: column;
-            background-color: #ffffff;
-            border: 1px solid #eaeaea;
-            margin-bottom: 40px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .featured-article:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-
-        .featured-img-wrapper {
-            width: 100%;
-            height: 400px;
-            background-color: #000;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .featured-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.9;
-        }
-
-        .featured-content {
-            padding: 24px;
-        }
-
-        .category-tag {
-            display: inline-block;
-            background-color: #fce205;
-            color: #000;
-            font-size: 10px;
-            font-weight: 800;
-            padding: 4px 8px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        .featured-title {
-            font-size: 32px;
-            font-weight: 900;
-            line-height: 1.15;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-        }
-
-        .featured-desc {
-            font-size: 16px;
-            color: #444;
-            margin-bottom: 16px;
-        }
-
-        /* Griglia delle notizie secondarie */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        /* Card Standard */
-        .news-card {
-            background-color: #ffffff;
-            border: 1px solid #eaeaea;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .news-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .card-img-wrapper {
-            width: 100%;
-            height: 180px;
-            background-color: #eee;
-            overflow: hidden;
-        }
-
-        .card-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .card-title {
-            font-size: 20px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 8px;
-        }
-
-        .card-desc {
-            font-size: 14px;
-            color: #555;
-            flex-grow: 1;
-            margin-bottom: 12px;
-        }
-
-        .meta-info {
-            font-size: 11px;
-            color: #888;
-            font-weight: 600;
-            text-transform: uppercase;
-            border-top: 1px solid #eee;
-            padding-top: 12px;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .featured-img-wrapper {
-                height: 250px;
-            }
-            .featured-title {
-                font-size: 26px;
-            }
-            .site-nav ul {
-                justify-content: center;
-            }
-        }
-
-        /* Loader di stato */
-        .loading-state {
-            text-align: center;
-            padding: 50px;
-            font-family: monospace;
-            color: #666;
+            .featured-img-wrapper { height: 250px; }
+            .featured-title, .article-headline { font-size: 28px; }
+            .meta-section { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .image-caption { position: static; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Contenitore unico per bloccare l'intera testata (Header + Nav) -->
     <div class="sticky-header-wrapper">
         <header class="site-header">
             <div class="icon hamburger">☰</div>
-            <div class="logo-container">
+            <div class="logo-container" onclick="app.goHome()">
                 <h1 class="logo-title">The Truth about Tutt</h1>
                 <div class="logo-subtitle">NOTIZIE FINTE PER PERSONE VERE</div>
             </div>
             <div class="icon search">⌕</div>
         </header>
-
         <nav class="site-nav">
             <ul>
-                <li>Home</li>
+                <li onclick="app.goHome()">Home</li>
                 <li>Attualità</li>
                 <li>Spettacolo</li>
                 <li>Economia</li>
                 <li>Cyber-Tech</li>
-                <li>Rubriche</li>
+                <li>Lotte Sindacali</li>
                 <li>Disclaimer</li>
             </ul>
         </nav>
     </div>
 
-    <!-- Contenitore Dinamico del Feed Notizie -->
+    <!-- VISTA 1: FEED DELLE NOTIZIE -->
     <main class="home-container" id="news-feed-container">
-        <div class="loading-state">Intercettazione dei dati dal database TATT in corso...</div>
+        <!-- Generato via JS -->
     </main>
 
-    <!-- Motore Logico JavaScript per Fetch JSON -->
+    <!-- VISTA 2: ARTICOLO SINGOLO (Template nascosto) -->
+    <main class="single-article-view" id="single-article-container">
+        <button class="back-button" onclick="app.goHome()">← Torna alle notizie</button>
+
+        <div class="category-tag" id="art-tag">SATIRA</div>
+        <h1 class="article-headline" id="art-title">Titolo</h1>
+        <p class="article-subhead" id="art-desc">Sottotitolo</p>
+
+        <div class="meta-section">
+            <div class="author-info">
+                <div class="author-avatar"><span>TATT</span></div>
+                <div class="author-details">
+                    <span class="author-name" id="art-author">Autore</span>
+                    <span class="article-date" id="art-date">Data</span>
+                    <span class="red-warning">SATIRA – NON PRENDETELO SUL SERIO</span>
+                </div>
+            </div>
+            <div class="social-share">
+                <a href="#" class="social-icon fb">f</a>
+                <a href="#" class="social-icon tw">🐦</a>
+                <a href="#" class="social-icon wa">✆</a>
+                <a href="#" class="social-icon em">✉</a>
+            </div>
+        </div>
+
+        <div class="image-wrapper">
+            <img src="" alt="" id="art-img">
+            <div class="image-caption" id="art-caption">Didascalia</div>
+        </div>
+
+        <div class="article-body" id="art-body">
+            <!-- Contenuto iniettato dal JSON -->
+        </div>
+    </main>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const feedContainer = document.getElementById('news-feed-container');
+        // Utilizziamo un oggetto globale per incapsulare la logica e renderla accessibile dall'HTML
+        const app = {
+            database: [],
+            currentPage: 1,
+            itemsPerPage: 4, // Quanti elementi mostrare per pagina
 
-            // Funzione asincrona per recuperare il file JSON
-            async function fetchNews() {
+            init: async function() {
                 try {
-                    // Nel caso di test locale (file://) il fetch potrebbe dare errore di CORS.
-                    // Assicurati di usare un Live Server o un ambiente server locale.
                     const response = await fetch('src/news.json');
-
-                    if (!response.ok) {
-                        throw new Error(`Errore HTTP: ${response.status}`);
-                    }
-
-                    const data = await response.json();
-                    renderFeed(data);
-
-                } catch (error) {
-                    console.error("Errore di caricamento:", error);
-                    feedContainer.innerHTML = `
-                        <div class="loading-state" style="color: #d32f2f;">
-                            <strong>ERRORE CRITICO DEL SISTEMA.</strong><br>
-                            Impossibile connettersi ai server TATT.<br>
-                            Assicurati che 'src/news.json' esista e di avviare il file tramite un server locale (es. VS Code Live Server) per aggirare i blocchi CORS di sicurezza del browser.
-                        </div>`;
+                    if (!response.ok) throw new Error("Errore Server");
+                    this.database = await response.json();
+                    this.renderFeed();
+                } catch (e) {
+                    document.getElementById('news-feed-container').innerHTML = `<p style="text-align:center; padding: 40px;">Database TATT irraggiungibile. Usa un Live Server.</p>`;
                 }
-            }
+            },
 
-            // Funzione per generare il layout HTML partendo dai dati JSON
-            function renderFeed(newsArray) {
-                // Svuota il contenitore dal loader
-                feedContainer.innerHTML = '';
+            renderFeed: function() {
+                const container = document.getElementById('news-feed-container');
+                container.innerHTML = ''; // Pulisce il container
 
-                // Separiamo la notizia principale dalle altre
-                const featuredNews = newsArray.find(article => article.isFeatured === true) || newsArray[0];
-                const regularNews = newsArray.filter(article => article.id !== featuredNews.id);
+                // Calcolo della paginazione
+                const totalItems = this.database.length;
+                const totalPages = Math.ceil(totalItems / this.itemsPerPage);
+                const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+                const endIndex = startIndex + this.itemsPerPage;
+                const currentItems = this.database.slice(startIndex, endIndex);
 
-                // 1. Renderizzazione Articolo in Evidenza
-                const featuredHTML = `
-                    <article class="featured-article">
-                        <div class="featured-img-wrapper">
-                            <img src="${featuredNews.imgSrc}" alt="${featuredNews.imgAlt}" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%3Crect%20fill%3D%22%23cccccc%22%20width%3D%22100%25%22%20height%3D%22100%25%22%2F%3E%3Ctext%20fill%3D%22%23888888%22%20font-family%3D%22sans-serif%22%20font-size%3D%2220%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImmagine%20non%20trovata%3C%2Ftext%3E%3C%2Fsvg%3E'">
-                        </div>
-                        <div class="featured-content">
-                            <span class="category-tag">${featuredNews.category}</span>
-                            <h2 class="featured-title">${featuredNews.title}</h2>
-                            <p class="featured-desc">${featuredNews.description}</p>
-                            <div class="meta-info">Di ${featuredNews.author} • ${featuredNews.date}</div>
-                        </div>
-                    </article>
-                `;
+                // Se siamo a pagina 1 e c'è una notizia in evidenza
+                let gridItems = currentItems;
+                if (this.currentPage === 1 && currentItems[0] && currentItems[0].isFeatured) {
+                    const feat = currentItems[0];
+                    const featHTML = `
+                        <article class="featured-article" onclick="app.openArticle('${feat.id}')">
+                            <div class="featured-img-wrapper"><img src="${feat.imgSrc}" alt="${feat.imgAlt}"></div>
+                            <div class="featured-content">
+                                <span class="category-tag">${feat.category}</span>
+                                <h2 class="featured-title">${feat.title}</h2>
+                                <p class="featured-desc">${feat.description}</p>
+                                <div class="meta-info">Di ${feat.author} • ${feat.date}</div>
+                            </div>
+                        </article>
+                    `;
+                    container.insertAdjacentHTML('beforeend', featHTML);
+                    gridItems = currentItems.slice(1); // Rimuove la prima dalla griglia
+                }
 
-                feedContainer.insertAdjacentHTML('beforeend', featuredHTML);
-
-                // 2. Renderizzazione Griglia Articoli Secondari
-                if (regularNews.length > 0) {
-                    const gridContainer = document.createElement('div');
-                    gridContainer.className = 'news-grid';
-
-                    regularNews.forEach(article => {
-                        const cardHTML = `
-                            <article class="news-card">
-                                <div class="card-img-wrapper">
-                                    <img src="${article.imgSrc}" alt="${article.imgAlt}" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%3Crect%20fill%3D%22%23cccccc%22%20width%3D%22100%25%22%20height%3D%22100%25%22%2F%3E%3Ctext%20fill%3D%22%23888888%22%20font-family%3D%22sans-serif%22%20font-size%3D%2214%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%3EImmagine%20non%20trovata%3C%2Ftext%3E%3C%2Fsvg%3E'">
-                                </div>
+                // Genera la griglia
+                if (gridItems.length > 0) {
+                    const grid = document.createElement('div');
+                    grid.className = 'news-grid';
+                    gridItems.forEach(art => {
+                        grid.insertAdjacentHTML('beforeend', `
+                            <article class="news-card" onclick="app.openArticle('${art.id}')">
+                                <div class="card-img-wrapper"><img src="${art.imgSrc}" alt="${art.imgAlt}"></div>
                                 <div class="card-content">
-                                    <span class="category-tag" style="align-self: flex-start; padding: 3px 6px; font-size: 9px;">${article.category}</span>
-                                    <h3 class="card-title">${article.title}</h3>
-                                    <p class="card-desc">${article.description}</p>
-                                    <div class="meta-info">Di ${article.author} • ${article.date}</div>
+                                    <span class="category-tag">${art.category}</span>
+                                    <h3 class="card-title">${art.title}</h3>
+                                    <p class="card-desc">${art.description}</p>
+                                    <div class="meta-info">Di ${art.author} • ${art.date}</div>
                                 </div>
                             </article>
-                        `;
-                        gridContainer.insertAdjacentHTML('beforeend', cardHTML);
+                        `);
                     });
-
-                    feedContainer.appendChild(gridContainer);
+                    container.appendChild(grid);
                 }
-            }
 
-            // Esegui la richiesta
-            fetchNews();
-        });
+                // Genera controlli di paginazione
+                if (totalPages > 1) {
+                    const pagContainer = document.createElement('div');
+                    pagContainer.className = 'pagination';
+
+                    pagContainer.insertAdjacentHTML('beforeend', `<button class="page-btn" ${this.currentPage === 1 ? 'disabled' : ''} onclick="app.changePage(${this.currentPage - 1})">Precedente</button>`);
+
+                    for(let i=1; i<=totalPages; i++) {
+                        pagContainer.insertAdjacentHTML('beforeend', `<button class="page-btn ${this.currentPage === i ? 'active' : ''}" onclick="app.changePage(${i})">${i}</button>`);
+                    }
+
+                    pagContainer.insertAdjacentHTML('beforeend', `<button class="page-btn" ${this.currentPage === totalPages ? 'disabled' : ''} onclick="app.changePage(${this.currentPage + 1})">Successiva</button>`);
+                    container.appendChild(pagContainer);
+                }
+            },
+
+            changePage: function(newPage) {
+                this.currentPage = newPage;
+                this.renderFeed();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+
+            openArticle: function(id) {
+                const art = this.database.find(item => item.id === id);
+                if (!art) return;
+
+                // Nasconde il feed, mostra l'articolo
+                document.getElementById('news-feed-container').style.display = 'none';
+                const articleView = document.getElementById('single-article-container');
+                articleView.style.display = 'block';
+
+                // Popola il DOM
+                document.getElementById('art-tag').textContent = art.category;
+                document.getElementById('art-title').textContent = art.title;
+                document.getElementById('art-desc').textContent = art.description;
+                document.getElementById('art-author').textContent = `Di ${art.author}`;
+                document.getElementById('art-date').textContent = art.date;
+                document.getElementById('art-img').src = art.imgSrc;
+                document.getElementById('art-caption').textContent = art.imgAlt + " (probabilmente)";
+
+                // Iniettiamo l'HTML del corpo
+                document.getElementById('art-body').innerHTML = art.content || "<p>Contenuto censurato dalle corporazioni.</p>";
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+
+            goHome: function() {
+                // Nasconde l'articolo, mostra il feed
+                document.getElementById('single-article-container').style.display = 'none';
+                document.getElementById('news-feed-container').style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
+        // Avvio
+        document.addEventListener('DOMContentLoaded', () => app.init());
     </script>
 </body>
 </html>

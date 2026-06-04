@@ -4,43 +4,83 @@
         "isFeatured": true,
         "category": "ECONOMIA E DISTOPIA",
         "title": "Amazon Prime Air acquista la base aerea di Milano: \"Diventerà il parcheggio per i nostri droni fattorino\"",
-        "description": "L'accordo multimiliardario è stato siglato stanotte. I caccia militari verranno riconvertiti per le consegne 'Ultra-Prime' garantite in 3 minuti. I residenti pugliesi si lamentano dell'inquinamento acustico, la multinazionale risponde offrendo in omaggio 3 mesi di Music Unlimited (con pubblicità).",
+        "description": "L'accordo multimiliardario è stato siglato stanotte. I caccia militari verranno riconvertiti per le consegne 'Ultra-Prime' garantite in 3 minuti.",
         "author": "Karl M.",
         "date": "4 Giugno 2026",
-        "imgSrc": "src/imgs/droni-milano.jpg",
-        "imgAlt": "Caccia militare con il logo del sorriso stampato sulla fiancata"
+        "imgSrc": "src/imgs/droni-lombardia.jpg",
+        "imgAlt": "Caccia militare con il logo del sorriso stampato sulla fiancata",
+        "content": "<p class=\"lead\">Il Ministero della Difesa ha ufficialmente ceduto lo spazio aereo pugliese. Le consegne Ultra-Prime non possono aspettare i tempi della logistica statale.</p><p>Nel comunicato ufficiale di Amazon, si legge che i droni Predator verranno utilizzati per paracadutare i pacchi di carta igienica e Funko Pop nei giardini degli abbonati. Tuttavia, l'impatto ambientale sta generando il caos: i residenti Milanesi si lamentano dell'inquinamento acustico[cite: 2].</p><blockquote>\"La multinazionale risponde offrendo in omaggio 3 mesi di Music Unlimited (con pubblicità)[cite: 2], ma solo se si accetta di ospitare una base di ricarica sul proprio tetto\", ha dichiarato un portavoce.</p>"
     },
     {
         "id": "news-002",
         "isFeatured": false,
-        "category": "SPETTACOLO",
+        "category": "SPETTACOLO / DRAMA",
         "title": "Arriva la notizia chocolàt da Ciccio Merrino, il “““terzo””””” polterguys",
-        "description": "Con una storia su Instagram che puzza di sarcasmo da chilometri, Ciccio – alias il \"terzo\" polterguys – ha lasciato tutti a bocca aperta: \"Li sto usando solo come trampolino di lancio per il ballo\".",
+        "description": "Con una storia su Instagram che puzza di sarcasmo da chilometri, Ciccio – alias il \"terzo\" polterguys – ha lasciato tutti a bocca aperta[cite: 2].",
         "author": "Redazione TATT",
         "date": "14 Maggio 2024",
         "imgSrc": "src/imgs/CiccioMerrino1.jpg",
-        "imgAlt": "Ciccio Merrino con giacca di pelle nera"
+        "imgAlt": "Ciccio Merrino con giacca di pelle nera",
+        "content": "<p class=\"lead\">Con una storia su Instagram che puzza di sarcasmo da chilometri, Ciccio Merrino – alias il \"\"\"terzo\"\"\" polterguys – ha lasciato tutti a bocca aperta.</p><blockquote>\"Polterguys? Penso che li abbandonerò, voglio darmi alla musica e al ballo e li sto usando esclusivamente come trampolino di lancio[cite: 2], daniele è fr***o e marco ob***o, lol!\"</blockquote><p>Parole forti, o forse no. Fonti vicine (cioè nessuna) confermano che si tratta di uno scherzo al 99,9%. Ma sui social è già il delirio: tra meme, screenshot e gif di Ciccio che balla, la situazione è completamente fuori controllo e NanniTwitch ha dovuto riavviare i server del Reddit per le troppe segnalazioni.</p>"
     },
     {
         "id": "news-003",
         "isFeatured": false,
-        "category": "SCIENZA / TECH",
-        "title": "Elon Musk introduce l'abbonamento mensile per l'uso dei freni nelle Tesla",
-        "description": "Se non rinnovi il pacchetto 'Brake-Premium' a 29,99€ al mese, l'Intelligenza Artificiale dell'auto deciderà autonomamente – basandosi sulle quotazioni in borsa – se fermarsi o meno ai semafori rossi.",
-        "author": "Tech-Bros TATT",
-        "date": "3 Giugno 2026",
-        "imgSrc": "src/imgs/tesla-brakes.jpg",
-        "imgAlt": "Un'automobile che sfreccia ignorando un incrocio"
+        "category": "LAVORO / SINDACATI",
+        "title": "Marco Merrino fonda il sindacato dei Polterguys: \"Dobbiamo fermare l'imperialismo di Ciccio\"",
+        "description": "La lotta di classe arriva su YouTube. Marco Croix89 si scaglia contro il fratello: \"Non siamo più i suoi operai della risata, esigiamo i mezzi di produzione (le telecamere).\"",
+        "author": "L'Avanguardia Proletaria",
+        "date": "2 Giugno 2026",
+        "imgSrc": "src/imgs/marco-sindacato.jpg",
+        "imgAlt": "Marco Merrino con un megafono e una bandiera rossa",
+        "content": "<p class=\"lead\">La bolla è scoppiata. Dopo anni passati a urlare contro i videogiochi, Marco Merrino ha finalmente trovato il suo vero nemico: il capitalismo familiare.</p><p>\"Ciccio ha accumulato troppo potere. Ormai detiene il monopolio del carisma e dei passi di danza\", ha urlato Marco durante un comizio improvvisato fuori dal McDonald's. La creazione del S.I.P. (Sindacato Indipendente Polterguys) ha raccolto l'adesione immediata di Daniele, il quale ha dichiarato: \"Vogliamo i diritti di base, come non essere insultati gratuitamente nei video e almeno due pause sigaretta garantite ogni ora di registrazione\".</p>"
     },
     {
         "id": "news-004",
         "isFeatured": false,
+        "category": "MISTERI",
+        "title": "Sdrumox avvistato nelle backrooms del server di Twitch: \"Mi nutro di sub di Tier 1 dal 2020\"",
+        "description": "Un tecnico della manutenzione giura di aver visto un'ombra con la barba che sussurrava aneddoti imbarazzanti su Yotobi nei cavi di rete.",
+        "author": "NanniTwitch",
+        "date": "28 Maggio 2026",
+        "imgSrc": "src/imgs/sdrumox-ombra.jpg",
+        "imgAlt": "Un'ombra mossa nei corridoi bui di una server farm",
+        "content": "<p class=\"lead\">Il ban perpetuo non era una punizione digitale, ma una condanna fisica. Sdrumox non ha mai lasciato Twitch; ne è diventato le fondamenta.</p><p>Secondo un report desecretato ieri sera (leakato accidentalmente da Mario Sturniolo durante l'ottocentesimo giorno della sua maratona live), l'entità conosciuta come Sdrumox vivrebbe ora sotto forma di puro codice nei server di Francoforte. \"Una volta ha intercettato una mia donazione e l'ha trasformata in una recensione audio di un film di serie B di trenta minuti\", ha testimoniato un utente anonimo.</p>"
+    },
+    {
+        "id": "news-005",
+        "isFeatured": false,
+        "category": "FINANZA",
+        "title": "Dario Moccia annuncia la carta 'Pefforza' in rarità 'Ghost Deh': crolla la Borsa di Milano",
+        "description": "Il valore nominale della nuova carta collezionabile supera il PIL del Molise. I broker di Wall Street disperati tentano di sbustarla in diretta.",
+        "author": "Il Sole 24 Sbuste",
+        "date": "1 Giugno 2026",
+        "imgSrc": "src/imgs/dario-pefforza.jpg",
+        "imgAlt": "Dario Moccia che sorride tenendo in mano una carta olografica scintillante",
+        "content": "<p class=\"lead\">L'economia mondiale non è più basata sull'oro o sul dollaro, ma sul drop rate dell'espansione 'Primo Impatto' di Dario Moccia.</p><p>Alle 14:00 di oggi, l'annuncio della rarità 'Ghost Deh' ha scatenato il panico. I fondi speculativi hanno liquidato le loro posizioni in criptovalute per comprare interi pallet di box dal sito di Tommasè, causandone il down istantaneo. \"Non potevamo prevederlo, deh\", è stata l'unica dichiarazione rilasciata dall'entourage di Moccia, mentre Mario Sturniolo veniva assunto per leggere ad alta voce l'andamento del mercato in live per i prossimi 10 anni.</p>"
+    },
+    {
+        "id": "news-006",
+        "isFeatured": false,
         "category": "POLITICA INTERNA",
         "title": "Governo vara il 'Bonus Ossigeno': 50 euro al mese per respirare, ma solo con ISEE inferiore a 4 euro",
-        "description": "L'aria pulita diventa ufficialmente un servizio in abbonamento a causa della privatizzazione atmosferica. Le accese polemiche dell'opposizione: \"E chi soffre di asma deve pagare un extra tariffario?\"",
+        "description": "L'aria pulita diventa ufficialmente un servizio in abbonamento a causa della privatizzazione atmosferica[cite: 2].",
         "author": "Redazione TATT",
-        "date": "1 Giugno 2026",
+        "date": "30 Maggio 2026",
         "imgSrc": "src/imgs/bonus-ossigeno.jpg",
-        "imgAlt": "Una bombola d'ossigeno brandizzata da un istituto di credito"
+        "imgAlt": "Una bombola d'ossigeno brandizzata da un istituto di credito",
+        "content": "<p class=\"lead\">La privatizzazione atmosferica ha raggiunto il suo picco. Le accese polemiche dell'opposizione si concentrano su un punto: \"E chi soffre di asma deve pagare un extra tariffario?\"[cite: 2]</p><p>Il Ministro dell'Economia ha rassicurato i cittadini dichiarando che, scaricando l'app ufficiale, sarà possibile guardare 30 secondi di pubblicità di NordVPN per sbloccare due respiri profondi gratuiti. Le manifestazioni in piazza sono state interrotte perché i partecipanti hanno finito i crediti polmonari prima di arrivare al corteo.</p>"
+    },
+    {
+        "id": "news-007",
+        "isFeatured": false,
+        "category": "TECH / TRUFFE",
+        "title": "Elon Musk introduce l'abbonamento mensile per l'uso dei freni nelle Tesla",
+        "description": "Se non rinnovi il pacchetto 'Brake-Premium', l'Intelligenza Artificiale deciderà se fermarsi basandosi sulle tue interazioni su X[cite: 2].",
+        "author": "Tech-Bros TATT",
+        "date": "3 Giugno 2026",
+        "imgSrc": "src/imgs/tesla-brakes.jpg",
+        "imgAlt": "Un'automobile che sfreccia ignorando un incrocio",
+        "content": "<p class=\"lead\">L'abbonamento mensile per l'uso dei freni nelle Tesla[cite: 2] costa 29,99€ al mese. L'Intelligenza Artificiale dell'auto deciderà autonomamente – basandosi sulle quotazioni in borsa – se fermarsi o meno ai semafori rossi[cite: 2].</p><p>Musk ha difeso la scelta in un tweet: \"Frenare è una mentalità da perdenti. Il moto perpetuo è il futuro. Se proprio dovete fermarvi, andate contro un muro a bassa velocità, i nostri airbag (venduti separatamente) vi proteggeranno al 40%\".</p>"
     }
 ]
